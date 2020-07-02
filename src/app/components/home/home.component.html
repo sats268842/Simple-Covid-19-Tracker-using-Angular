@@ -1,0 +1,96 @@
+<div class="container pt-5 pb-2">
+  <div class=" w-100 text-center">
+  Last Updated Date:  {{ date |date }}
+  </div>
+</div>
+<div class="container">
+
+  <div class="row w-100 ">
+
+  <div class="col-4 text-center">
+
+    <app-card heading="New Confirmed" count={{newConfirmed}}></app-card>
+
+  </div>
+
+  <div class="col-4 text-center">
+    <app-card heading="Total Confirmed" count={{totalConfirmed}}></app-card>
+  </div>
+
+  <div class="col-4 text-center">
+    <app-card heading="New Deaths" count={{newDeaths}}></app-card>
+  </div>
+
+</div>
+</div>
+
+
+<div class="container">
+
+  <div class="row w-100 ">
+
+  <div class="col-4 text-center">
+
+    <app-card heading="Total Deaths" count={{totalDeaths}}></app-card>
+
+  </div>
+
+  <div class="col-4 text-center">
+    <app-card heading="New Recovered" count={{newRecovered}}></app-card>
+  </div>
+
+  <div class="col-4 text-center">
+    <app-card heading="Total Recovered" count={{totalRecovered}}></app-card>
+  </div>
+
+
+
+</div>
+</div>
+
+
+<h1 class="text-center font-weight-bold pt-5 pb-5">India</h1>
+<div class="container">
+
+  <div class="row w-100 ">
+
+  <div class="col-4 text-center">
+
+    <app-card heading="New Confirmed" count={{conNewConfirmed}}></app-card>
+
+  </div>
+
+  <div class="col-4 text-center">
+    <app-card heading="Total Confirmed" count={{conTotalConfirmed}}></app-card>
+  </div>
+
+  <div class="col-4 text-center">
+    <app-card heading="New Deaths" count={{conNewDeaths}}></app-card>
+  </div>
+
+</div>
+</div>
+
+
+<div class="container">
+
+  <div class="row w-100 ">
+
+  <div class="col-4 text-center">
+
+    <app-card heading="Total Deaths" count={{conTotalDeaths}}></app-card>
+
+  </div>
+
+  <div class="col-4 text-center">
+    <app-card heading="New Recovered" count={{conNewRecovered}}></app-card>
+  </div>
+
+  <div class="col-4 text-center">
+    <app-card heading="Total Recovered" count={{conTotalRecovered}}></app-card>
+  </div>
+
+
+
+</div>
+</div>
