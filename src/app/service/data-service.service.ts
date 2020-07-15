@@ -9,7 +9,7 @@ import {Global } from './models/global'
 })
 export class DataServiceService {
 
-
+  datatable = []
   private globalDataUrl = "https://api.covid19api.com/summary";
   constructor(private http: HttpClient) { }
 
@@ -19,6 +19,7 @@ export class DataServiceService {
 
     )
   }
+
   // getByCountry(): Observable<Country>{
   //   return this.http.get<Country>(this.getbyCountry).pipe(
 

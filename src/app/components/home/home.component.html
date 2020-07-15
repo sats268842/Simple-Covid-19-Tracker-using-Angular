@@ -1,3 +1,7 @@
+<div *ngIf="isLoaded">
+
+
+
 <div class="container pt-5 pb-2">
   <div class=" w-100 text-center">
   Last Updated Date:  {{ date |date }}
@@ -52,10 +56,30 @@
 </div>
 
 
-<h1 class="text-center font-weight-bold pt-5 pb-5">India</h1>
+
 <div class="container">
 
-  <div class="row w-100 ">
+<h1 class="text-center font-weight-bold pt-5 pb-5">{{currentCountry}}</h1>
+
+<!-- <h4>Basic mat-select</h4>
+<mat-form-field appearance="fill">
+  <mat-label>Favorite food</mat-label>
+  <mat-select>
+    <mat-option *ngFor="let food of foods" [value]="food.value">
+      {{food.viewValue}}
+    </mat-option>
+  </mat-select>
+</mat-form-field> -->
+
+<h4>Select Country</h4>
+<mat-form-field appearance="fill">
+
+  <select matNativeControl required [(ngModel)]="currentCountry"  (change)="onCountryChange($event)">
+    <option  [value]="country.Country" *ngFor="let country of Response1">{{country.Country}}</option>
+  </select>
+</mat-form-field>
+
+  <div class="row w-100">
 
   <div class="col-4 text-center">
 
@@ -80,7 +104,11 @@
   <div class="row w-100 ">
 
   <div class="col-4 text-center">
-
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let option of options" [value]="option">
+        {{option}}
+      </mat-option>
+    </mat-autocomplete>
     <app-card heading="Total Deaths" count={{conTotalDeaths}}></app-card>
 
   </div>
@@ -96,4 +124,6 @@
 
 
 </div>
+</div>
+
 </div>

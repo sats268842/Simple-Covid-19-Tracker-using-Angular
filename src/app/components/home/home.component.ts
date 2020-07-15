@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 
 import { DataServiceService } from '../../service/data-service.service'
 
 import { Global } from '../../service/models/global';
 import { Countries } from 'src/app/service/models/country';
+import { Observable } from 'rxjs';
+import { FormControl } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -12,7 +15,7 @@ import { Countries } from 'src/app/service/models/country';
 export class HomeComponent implements OnInit {
 
 newConfirmed: any = '';
-totalConfirmed: any = '';
+totalConfirmed: number;
 newDeaths: any = '';
 totalDeaths: any ='';
 newRecovered : any ='';
@@ -28,13 +31,33 @@ conTotalDeaths: any ='';
 conNewRecovered : any ='';
 conTotalRecovered : any ='';
 
-constructor(private dataService :DataServiceService){
+
+data = [];
+isLoaded = false;
+constructor(private dataService :DataServiceService,
+  private changeDetectorRefs: ChangeDetectorRef){
 
 }
 
+Highcharts = "Highcharts";
+chartOptions = {};
+datatable :Array<any> = [];
+
+myControl = new FormControl();
+options: string[] = ['One', 'Two', 'Three'];
+filteredOptions: Observable<string[]>;
+Response1 : Countries;
+
+currentCountry;
 ngOnInit(){
-this.dataService.getGlobalData().subscribe(Response => {
-  console.log(Response.Global.NewConfirmed);
+
+
+  this.dataService.getGlobalData().subscribe(Response => {
+
+
+
+  this.data.push(["New Confirmed", Response.Global.NewConfirmed])
+
   this.newConfirmed = Response.Global.NewConfirmed;
   this.totalConfirmed = Response.Global.TotalConfirmed;
   this.newDeaths = Response.Global.NewDeaths;
@@ -42,7 +65,9 @@ this.dataService.getGlobalData().subscribe(Response => {
   this.newRecovered = Response.Global.NewRecovered;
   this.totalRecovered = Response.Global.TotalRecovered;
   this.date = Response.Date;
-  this.country = Response.Countries[76];
+  this.Response1 = Response.Countries;
+  this.country = Response.Countries[0];
+  this.currentCountry =  Response.Countries[0].Country;
   this.countryCode = this.country.CountryCode;
   this.conNewConfirmed = this.country.NewConfirmed;
   this.conTotalConfirmed = this.country.TotalConfirmed;
@@ -50,12 +75,31 @@ this.dataService.getGlobalData().subscribe(Response => {
   this.conTotalDeaths = this.country.TotalDeaths;
   this.conNewRecovered = this.country.NewRecovered;
   this.conTotalRecovered = this.country.TotalRecovered;
-  console.log(this.country)
-})
-// this.dataService.getByCountry().subscribe(Response => {
-//   console.log(Response)
 
-// })
+  this.isLoaded = true;
+  });
+
 }
 
+onCountryChange(event){
+ console.log(this.currentCountry)
+
+ for (let i in this.Response1){
+
+  if(this.Response1[i].Country === this.currentCountry){
+    this.country = this.Response1[i];
+    this.currentCountry =  this.Response1[i].Country;
+    this.countryCode = this.country.CountryCode;
+    this.conNewConfirmed = this.country.NewConfirmed;
+    this.conTotalConfirmed = this.country.TotalConfirmed;
+    this.conNewDeaths = this.country.NewDeaths;
+    this.conTotalDeaths = this.country.TotalDeaths;
+    this.conNewRecovered = this.country.NewRecovered;
+    this.conTotalRecovered = this.country.TotalRecovered;
+   console.log(this.Response1[i])
+  }
+
+
+ }
+}
 }
