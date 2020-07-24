@@ -25,5 +25,21 @@
         ]
       }
     }
+  ],
+  "dataGroups": [
+    {
+      "name": "notes",
+      "urls": [
+        "https://api.covid19api.com/summary/**"
+      ],
+      "cacheConfig": {
+        "maxSize": 5,
+        "maxAge": "6h",
+        "timeout": "20s",
+        "strategy": "freshness"
+
+      }
+
+    }
   ]
 }
