@@ -30,7 +30,7 @@
     {
       "name": "notes",
       "urls": [
-        "https://api.covid19api.com/summary/**"
+        "https://api.covid19api.com/summary"
       ],
       "cacheConfig": {
         "maxSize": 5,
