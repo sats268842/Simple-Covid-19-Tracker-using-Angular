@@ -11,7 +11,7 @@
     "dev:ssr": "ng run covidtracker:serve-ssr",
     "serve:ssr": "node dist/covidtracker/server/main.js",
     "build:ssr": "ng build --prod && ng run covidtracker:server:production",
-    "prerender": "ng run covidtracker:prerender"
+    "prerender": "ng build --prod && ng run covidtracker:prerender"
   },
   "private": true,
   "dependencies": {
