@@ -10,8 +10,8 @@
     "e2e": "ng e2e",
     "dev:ssr": "ng run covidtracker:serve-ssr",
     "serve:ssr": "node dist/covidtracker/server/main.js",
-    "build:ssr": "ng build --prod && ng run covidtracker:server:production && ng run covidtracker:prerender",
-    "prerender": "ng run covidtracker:prerender"
+    "build:ssr": "ng build --prod && ng run covidtracker:server:production",
+    "prerender": "ng run covidtracker:prerender && ng run covidtracker:server:production"
   },
   "private": true,
   "dependencies": {

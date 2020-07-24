@@ -169,10 +169,7 @@
             ]
           },
           "configurations": {
-            "production": {
-              "browserTarget": "covidtracker:build:production",
-              "serverTarget": "covidtracker:server:production"
-            }
+            "production": {}
           }
         }
       }
