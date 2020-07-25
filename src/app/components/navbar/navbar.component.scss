@@ -1,6 +1,17 @@
+@import '../../../main-style.scss';
+
+
 .example-icon {
   padding: 0 14px;
 }
 .example-spacer {
   flex: 1 1 auto;
+}
+
+
+.hero{
+  background-color: $primary;
+  h1{
+  color: white;
+  }
 }
