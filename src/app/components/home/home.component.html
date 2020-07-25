@@ -9,68 +9,49 @@
 </div>
 
 
-<h1 class="text-center font-weight-bold pt-5 pb-5">Globally</h1>
+<h1 class="text-center font-weight-bold pt-6 pb-5">Globally</h1>
+
 <div class="container">
 
-  <div class="row w-100 ">
+  <div class="columns is-centered ">
 
-  <div class="col-4 text-center">
+
 
     <app-card heading="New Confirmed" count={{newConfirmed}}></app-card>
 
-  </div>
 
-  <div class="col-4 text-center">
     <app-card heading="Total Confirmed" count={{totalConfirmed}}></app-card>
-  </div>
 
-  <div class="col-4 text-center">
+
     <app-card heading="New Deaths" count={{newDeaths}}></app-card>
-  </div>
 
 </div>
 </div>
+
 
 
 <div class="container">
 
-  <div class="row w-100 ">
-
-  <div class="col-4 text-center">
+  <div class="columns is-centered">
 
     <app-card heading="Total Deaths" count={{totalDeaths}}></app-card>
 
-  </div>
-
-  <div class="col-4 text-center">
     <app-card heading="New Recovered" count={{newRecovered}}></app-card>
-  </div>
 
-  <div class="col-4 text-center">
     <app-card heading="Total Recovered" count={{totalRecovered}}></app-card>
-  </div>
-
-
 
 </div>
 </div>
 
 
+  <div class="container">
 
-<div class="container">
 
-<h1 class="text-center font-weight-bold pt-5 pb-5">{{currentCountry}}</h1>
+      <h1 class="has-text-centered mt-4 pt-6 pb-3 is-size-3 has-text-weight-medium">{{currentCountry }}</h1>
 
-<!-- <h4>Basic mat-select</h4>
-<mat-form-field appearance="fill">
-  <mat-label>Favorite food</mat-label>
-  <mat-select>
-    <mat-option *ngFor="let food of foods" [value]="food.value">
-      {{food.viewValue}}
-    </mat-option>
-  </mat-select>
-</mat-form-field> -->
 
+
+<div class="pb-4 pt-4">
 <h4>Select Country</h4>
 <mat-form-field appearance="fill">
 
@@ -78,22 +59,18 @@
     <option  [value]="country.Country" *ngFor="let country of Response1">{{country.Country}}</option>
   </select>
 </mat-form-field>
+</div>
 
-  <div class="row w-100">
-
-  <div class="col-4 text-center">
+<div class="columns is-centered">
 
     <app-card heading="New Confirmed" count={{conNewConfirmed}}></app-card>
 
-  </div>
 
-  <div class="col-4 text-center">
     <app-card heading="Total Confirmed" count={{conTotalConfirmed}}></app-card>
-  </div>
 
-  <div class="col-4 text-center">
+
     <app-card heading="New Deaths" count={{conNewDeaths}}></app-card>
-  </div>
+
 
 </div>
 </div>
@@ -101,25 +78,15 @@
 
 <div class="container">
 
-  <div class="row w-100 ">
+  <div class="columns is-centered">
 
-  <div class="col-4 text-center">
-    <mat-autocomplete #auto="matAutocomplete">
-      <mat-option *ngFor="let option of options" [value]="option">
-        {{option}}
-      </mat-option>
-    </mat-autocomplete>
     <app-card heading="Total Deaths" count={{conTotalDeaths}}></app-card>
 
-  </div>
 
-  <div class="col-4 text-center">
     <app-card heading="New Recovered" count={{conNewRecovered}}></app-card>
-  </div>
 
-  <div class="col-4 text-center">
     <app-card heading="Total Recovered" count={{conTotalRecovered}}></app-card>
-  </div>
+
 
 
 

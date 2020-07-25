@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
-  styleUrls: ['./home.component.css']
+  styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
 
@@ -39,10 +39,8 @@ constructor(private dataService :DataServiceService,
 
 }
 
-Highcharts = "Highcharts";
-chartOptions = {};
-datatable :Array<any> = [];
-
+myType = 'PieChart';
+myData = [];
 myControl = new FormControl();
 options: string[] = ['One', 'Two', 'Three'];
 filteredOptions: Observable<string[]>;
@@ -56,7 +54,8 @@ ngOnInit(){
 
 
 
-  this.data.push(["New Confirmed", Response.Global.NewConfirmed])
+  // this.myData.push(["Total Confirmed", Response.Global.TotalConfirmed])
+  // this.myData.push(["Total Death", Response.Global.TotalDeaths])
 
   this.newConfirmed = Response.Global.NewConfirmed;
   this.totalConfirmed = Response.Global.TotalConfirmed;
